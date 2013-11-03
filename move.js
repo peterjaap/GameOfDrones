@@ -7,6 +7,27 @@ client.createRepl();
 //client.on('navdata', console.log);
 client.takeoff();
 
+var SPEED = 0.6;
+
+client
+    .after(1000, function () {
+        this.up(SPEED);
+    })
+    .after(5000, function () {
+        this.down(SPEED);
+    })
+    .after(5000, function () {
+        this.up(SPEED);
+    })
+    .after(5000, function () {
+        this.down(SPEED);
+    })
+    .after(5000, function () {
+       this.stop();
+       this.land(); 
+    });
+
+/*
 client
   .after(1000, function() {
     this.front(0.2);
@@ -27,7 +48,7 @@ client
   .after(6000, function() {
     this.stop();
     this.land();
-  });
+  });*/
   
 
 // Land on ctrl-c
